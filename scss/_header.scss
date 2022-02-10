@@ -1,0 +1,110 @@
+.header{
+    background-color: $veryLightGray;
+    nav{
+        position: relative;
+        background-color: $white;
+        padding-top: 1.065rem;
+        padding-bottom: 1.065rem;
+    }
+
+    &.open {
+        .overlay{
+            display: block;
+        }
+
+        .header__toggle{
+            > span:first-child {
+                transform: rotate(45deg);
+            }
+    
+            > span:nth-child(2) {
+                opacity: 0;
+            }
+    
+            > span:last-child {
+                transform: rotate(-45deg)
+            }
+        }
+    }
+
+    .overlay{
+        opacity: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient($darkBlue, transparent);
+    }
+
+    &__logo{
+        width: 8.8rem;
+        height: 1.3rem;
+    }
+
+    &__toggle{
+        
+        > span{
+            display: block;
+            width: 26px;
+            height: 2px;
+            background-color: $darkBlue;
+            transition: all 300ms ease-in-out;
+            transform-origin: 3px 1px;
+
+            &:not(:last-child){
+                margin-bottom: 5px;
+            }
+        }
+
+    }
+
+    &__menu{
+        position: absolute;
+        width: calc(100% - 3rem);
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 1.5rem;
+        background: $white;
+        padding: 1.62rem;
+        border-radius: 5px;
+        a{
+            display: block;
+            color: $darkBlue;
+            padding: 0.62rem;
+            text-align: center;
+        }
+    }
+
+    &__links{
+        a{
+            position: relative;
+            font-size: $font_sm;
+
+            &:not(:last-child){
+                margin-right: 32px;
+            }
+
+            &::before{
+                content: '';
+                position: absolute;
+                display: block;
+                height: 3px;
+                left: 0;
+                right: 0;
+                bottom: -30px;
+                background: linear-gradient(to left, $brightCyan,$limeGreen );
+                opacity: 0;
+                transition: opacity 400ms ease-in-out;
+            }
+            &:hover::before{
+                opacity: 1;
+            }
+
+            &:hover{
+                color: $darkBlue;
+            }
+        }
+    }
+}
+
